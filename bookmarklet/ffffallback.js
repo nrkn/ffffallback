@@ -79,13 +79,56 @@
     return uniquedArray;
   }
 
+  $.removeBoringFonts = function(allFonts) {
+    if(allFonts.length === 0) {
+      return allFonts;
+    }
+
+    var knownBoringFonts = [
+      'helvetica',
+      'lucida grande',
+      'tahoma',
+      'microsoft sans serif',
+      'arial',
+      'courier new',
+      'times new roman',
+      'verdana',
+      'courier',
+      'geneva',
+      'monaco',
+      'trebuchet ms',
+      'lucida console',
+      'comic sans ms',
+      'georgia',
+      'impact',
+      'lucida sans unicode',
+      'times'
+    ];
+
+    var interestingFonts = [];
+    $.each(allFonts, function(declaration) {
+      var fontsInDeclaration = $.getFontsFromDeclaration(declaration);
+      if(fontsInDeclaration.length === 0) {
+        return;
+      }
+
+      if(knownBoringFonts.indexOf(fontsInDeclaration[0].toLowerCase()) >= 0) {
+        return;
+      }
+
+      interestingFonts.push(declaration);
+    });
+
+    return interestingFonts;
+  }
+
   $.getAllFontsInUse = function(elem) {
     var elemFont = $.getElementFont(elem);
     var fonts = elemFont ? [elemFont] : [];
     $.each(elem.childNodes, function(childElem) {
       fonts = fonts.concat($.getAllFontsInUse(childElem));
     });
-    return $.unique(fonts).sort();
+    return $.removeBoringFonts($.unique(fonts)).sort();
   }
 
   $.getClassForFont = function(font) {
@@ -300,11 +343,11 @@
       $.setFallbackCSS(cssDeclarations);
     });
   }
-  
+
   window.addEventListener('load', function() {
     $.init();
   }, false);
-  
+
   if(document.body) {
     $.init();
   }
