@@ -35,7 +35,7 @@ body.ffffallback-hide-original #ffffallback-content-container {
   right: 0px;
   top: 0px;
   background:rgba(0,0,0,0.8);
-  -webkit-box-shadow: rgba(0,0,0,0.5) 0 2px 5px;
+  -webkit-box-shadow: rgba(0,0,0,0.5) 0 0 3px;
   color:rgba(255,255,255,0.9);
   font: 13px/1em normal helvetica, arial, sans-serif !important;
   width: 220px;
