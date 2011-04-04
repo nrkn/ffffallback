@@ -23,7 +23,8 @@
 }
 
 #ffffallback-controller .expanded .ffffallback-disclosure {
-  -webkit-transform:rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
 }
 
 #ffffallback-controller .ffffallback-disclosure {
@@ -31,9 +32,10 @@
   display: inline-block;
   text-decoration: none;
   width: 16px;
+  -moz-transition-property: -moz-transform;
+  -moz-transition-duration: 0.125s;
   -webkit-transition-property: -webkit-transform;
   -webkit-transition-duration: 0.125s;
-
 }
 
 #ffffallback-content-container * {

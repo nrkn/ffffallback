@@ -1,4 +1,12 @@
 (function() {
+  if(typeof(console) == 'undefined') {
+    var console = {
+      log: function(message) {
+        //  alert(message);
+      }
+    }
+  }
+
   var $ = {
     memo: {},
   }
@@ -18,6 +26,12 @@
   };
 
   $.getComputedStyleOfElement = function(elem) {
+    if(!elem.tagName) {
+      alert("WHAT THE FUCK");
+      window.bum = elem;
+      return null;
+    }
+
     /**
      *  Based on this blog entry:
      *  http://blog.stchur.com/2006/06/21/css-computed-style/
@@ -25,6 +39,7 @@
     if (typeof elem.currentStyle != 'undefined') {
       return elem.currentStyle;
     }
+
     return document.defaultView.getComputedStyle(elem, null);
   };
 
@@ -45,7 +60,6 @@
 
   $.getFontsFromDeclaration = function(fontDeclaration) {
     if($.getFontsFromDeclaration.memo[fontDeclaration]) {
-      console.log('memo');
       return $.getFontsFromDeclaration.memo[fontDeclaration];
     }
 
@@ -60,12 +74,14 @@
   $.getFontsFromDeclaration.memo = {};
 
   $.getElementFont = function(elem) {
-    var style = $.getComputedStyleOfElement(elem);
-    if(style && style['font-family']) {
+    var style = $.getComputedStyleOfElement(elem) || {};
+    if(style['font-family']) {
       return style['font-family'];
-    } else {
-      return null;
+    } else if(style['fontFamily']) {
+      return style['fontFamily'];
     }
+
+    return null;
   }
 
   $.unique = function(array) {
@@ -126,6 +142,9 @@
     var elemFont = $.getElementFont(elem);
     var fonts = elemFont ? [elemFont] : [];
     $.each(elem.childNodes, function(childElem) {
+      if(!childElem.tagName) {
+        return;
+      }
       fonts = fonts.concat($.getAllFontsInUse(childElem));
     });
     return $.removeBoringFonts($.unique(fonts)).sort();
@@ -171,7 +190,7 @@
 
   $.addFontClasses = function(elem, parentFont) {
     parentFont = parentFont || null;
-    var font = $.getElementFont(elem);
+    var font = elem.tagName ? $.getElementFont(elem) : false;
 
     if(elem.getAttribute) {
       var className = false;
@@ -233,8 +252,8 @@
       document.body.appendChild(styleElement);
     }
 
-    styleElement.innerText = cssText;
-    console.log('Did set', cssText);
+    styleElement.innerHTML = cssText;
+    console.log('Did set' + cssText);
   };
 
   window.$fallback = $;
@@ -271,6 +290,7 @@
   </form>\
   ');
     controller.setAttribute('id', 'ffffallback-controller');
+    console.log('adding controller');
     document.body.appendChild(controller);
     var fontList = document.getElementById('ffffallback-fonts');
     fontList.innerHTML = '';
