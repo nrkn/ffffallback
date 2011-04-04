@@ -153,6 +153,11 @@
     element.setAttribute('class', elementClassName);
   };
 
+  $.isClassOnElement = function(className, element) {
+    var classes = (element.getAttribute('class') || '').split(' ');
+    return (classes.indexOf(className) >= 0);
+  }
+
   $.removeClassFromElement = function(classNameToRemove, element) {
     var elementClassName = '';
     var classes = (element.getAttribute('class') || '').split(' ');
@@ -212,7 +217,11 @@
       cssText += '#ffffallback-content-container ' + selector + ' {\n';
       cssText += 'color: magenta !important;';
       $.each(declarations, function(value, key) {
-        cssText += '  ' + key + ': ' + value + ';\n';
+        if(key === 'x-more') {
+          cssText += '  ' + value + ';\n';
+        } else {
+          cssText += '  ' + key + ': ' + value + ';\n';
+        }
       });
       cssText += '}\n\n';
     });
@@ -273,15 +282,28 @@
       var fonts = document.getElementById('ffffallback-fonts');
       var toggles = document.getElementById('ffffallback-toggles');
 
-      fonts.style.maxHeight = (controller.offsetHeight - (title.offsetHeight + toggles.offsetHeight + 40)) + 'px';
+      var maxHeight = controller.offsetHeight - (title.offsetHeight + toggles.offsetHeight);
+      fonts.style.maxHeight = maxHeight + 'px';
     }
+    $.r = resizeController;
     window.addEventListener('resize', resizeController, false);
     resizeController();
 
-    var fontClass;
+    var fontClass, row;
     $.each($.getAllFontsInUse(document.body), function(font) {
       fontClass = $.getClassForFont(font);
-      fontList.appendChild($.createElementWithContent('li', '<b>' + font + '</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" />'));
+      row = $.createElementWithContent('li', '<b>' + font + '</b><a href="#" class="ffffallback-disclosure">&#x25BA;</a><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><textarea class="ffffallback-more-values" placeholder="More CSS styles"></textarea>');
+      row.setAttribute('class', 'collapsed');
+      $.event(row.getElementsByClassName('ffffallback-disclosure')[0], 'click', function() {
+        if($.isClassOnElement('collapsed', row)) {
+          $.addClassToElement('expanded', row);
+          $.removeClassFromElement('collapsed', row);
+        } else {
+          $.addClassToElement('collapsed', row);
+          $.removeClassFromElement('expanded', row);
+        }
+      });
+      fontList.appendChild(row);
     });
 
     $.event(document.getElementById('ffffallback-display-mode-original'), 'click', function() {
@@ -329,14 +351,17 @@
         if(!fontInput.getAttribute) {
           return;
         }
+        var moreTextArea = fontInput.parentNode.getElementsByClassName('ffffallback-more-values')[0];
         var className = fontInput.getAttribute('data:font-class');
         var value = $.trimString(fontInput.value);
-        if(!value) {
+        var moreValues = $.trimString(moreTextArea.value);
+        if(!value && !moreValues) {
           return;
         }
         cssDeclarations['.' + className] = {
           //  TODO: 'font' instead of font-family?
-          'font-family': value
+          'font-family': value,
+          'x-more': moreValues
         };
       });
       console.log(cssDeclarations);
@@ -344,11 +369,11 @@
     });
   }
 
+  if(document.body) {
+    $.init();
+  } else {
   window.addEventListener('load', function() {
     $.init();
   }, false);
-
-  if(document.body) {
-    $.init();
   }
 })();
