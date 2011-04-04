@@ -22,6 +22,7 @@
 }
 
 #ffffallback-controller .expanded .ffffallback-disclosure span{
+  -moz-transform: rotate(-180deg);
   -webkit-transform:rotate(-180deg);
   text-shadow:rgba(0,0,0,0.8) 0 1px 0;
   position:relative;
@@ -50,6 +51,8 @@
   top:7px;
   text-decoration: none;
   text-shadow:rgba(0,0,0,0.8) 0 -1px 0;
+  -moz-transition-property: -moz-transform;
+  -moz-transition-duration: 0.125s;
   -webkit-transition-property: -webkit-transform;
   -webkit-transition-duration: 0.25s;
 }
@@ -94,6 +97,8 @@ body.ffffallback-hide-original #ffffallback-content-container {
 
 #ffffallback-controller h1 {
   color:#313131;
+  background-color: #cecece;
+  background-image: -moz-linear-gradient(0deg, #cecece, #b3b3b3);
   background-image: -webkit-gradient(linear, 0 top, 0 bottom, from( #cecece ), to( #b3b3b3 ));
   border-bottom:1px solid rgba(0,0,0,0.2);
   text-shadow:rgba(255,255,255,0.6) 0 1px 0;
@@ -198,7 +203,7 @@ body.ffffallback-hide-original #ffffallback-content-container {
   margin-top: 0;
   height: 100% !important;
   max-height: 500px;
-  overflow-y: scroll;
+  overflow-y: auto;
   -moz-box-shadow:    inset 0 2px 5px black;
   -webkit-box-shadow: inset 0 2px 5px black;
   -o-box-shadow:      inset 0 2px 5px black;
@@ -249,7 +254,7 @@ body.ffffallback-hide-original #ffffallback-content-container {
   color: #eee;
   font:normal 13px/normal Arial, sans-serif;
   padding: 5px;
-  width:160px;
+  width:150px;
   margin-top:10px;
 }
 input[type=text]::-webkit-input-placeholder {

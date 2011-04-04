@@ -1,4 +1,16 @@
 (function() {
+  if(navigator.userAgent.indexOf('MSIE') >= 0) {
+    return alert('FFFFALLBACK only works in Chrome, Safari, and Firefox right now. :(\n\nSorry,\n - Mark');
+  }
+
+  if(typeof(console) == 'undefined') {
+    var console = {
+      log: function(message) {
+        //  alert(message);
+      }
+    }
+  }
+
   var $ = {
     memo: {},
   }
@@ -18,6 +30,12 @@
   };
 
   $.getComputedStyleOfElement = function(elem) {
+    if(!elem.tagName) {
+      alert("WHAT THE FUCK");
+      window.bum = elem;
+      return null;
+    }
+
     /**
      *  Based on this blog entry:
      *  http://blog.stchur.com/2006/06/21/css-computed-style/
@@ -25,6 +43,7 @@
     if (typeof elem.currentStyle != 'undefined') {
       return elem.currentStyle;
     }
+
     return document.defaultView.getComputedStyle(elem, null);
   };
 
@@ -45,7 +64,6 @@
 
   $.getFontsFromDeclaration = function(fontDeclaration) {
     if($.getFontsFromDeclaration.memo[fontDeclaration]) {
-      console.log('memo');
       return $.getFontsFromDeclaration.memo[fontDeclaration];
     }
 
@@ -60,12 +78,14 @@
   $.getFontsFromDeclaration.memo = {};
 
   $.getElementFont = function(elem) {
-    var style = $.getComputedStyleOfElement(elem);
-    if(style && style['font-family']) {
+    var style = $.getComputedStyleOfElement(elem) || {};
+    if(style['font-family']) {
       return style['font-family'];
-    } else {
-      return null;
+    } else if(style['fontFamily']) {
+      return style['fontFamily'];
     }
+
+    return null;
   }
 
   $.unique = function(array) {
@@ -126,6 +146,9 @@
     var elemFont = $.getElementFont(elem);
     var fonts = elemFont ? [elemFont] : [];
     $.each(elem.childNodes, function(childElem) {
+      if(!childElem.tagName) {
+        return;
+      }
       fonts = fonts.concat($.getAllFontsInUse(childElem));
     });
     return $.removeBoringFonts($.unique(fonts)).sort();
@@ -171,7 +194,7 @@
 
   $.addFontClasses = function(elem, parentFont) {
     parentFont = parentFont || null;
-    var font = $.getElementFont(elem);
+    var font = elem.tagName ? $.getElementFont(elem) : false;
 
     if(elem.getAttribute) {
       var className = false;
@@ -233,8 +256,8 @@
       document.body.appendChild(styleElement);
     }
 
-    styleElement.innerText = cssText;
-    console.log('Did set', cssText);
+    styleElement.innerHTML = cssText;
+    console.log('Did set' + cssText);
   };
 
   window.$fallback = $;
@@ -271,6 +294,7 @@
   </form>\
   ');
     controller.setAttribute('id', 'ffffallback-controller');
+    console.log('adding controller');
     document.body.appendChild(controller);
     var fontList = document.getElementById('ffffallback-fonts');
     fontList.innerHTML = '';
@@ -292,7 +316,7 @@
     var fontClass, row;
     $.each($.getAllFontsInUse(document.body), function(font) {
       fontClass = $.getClassForFont(font);
-      row = $.createElementWithContent('li', '<b>' + font + '</b><input type="text" value="" placeholder="Fallback font. Ex. Verdana" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="Adjust styles. Ex. color:red;"></textarea>');
+      row = $.createElementWithContent('li', '<b>' + font + '</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75;"></textarea>');
       row.setAttribute('class', 'collapsed');
       $.event(row.getElementsByClassName('ffffallback-disclosure')[0], 'click', function() {
         if($.isClassOnElement('collapsed', row)) {
