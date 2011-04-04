@@ -13,6 +13,7 @@
 
 #ffffallback-controller .ffffallback-more-values {
   margin-left: 0px;
+  margin-top:0px;
   width: 160px;
 }
 
@@ -245,12 +246,15 @@ body.ffffallback-hide-original #ffffallback-content-container {
   background: rgb(102, 102, 102);
   border: 1px solid black;
   border-radius:4px;
-  color: rgb(204, 204, 204);
+  color: #eee;
   font:normal 13px/normal Arial, sans-serif;
   padding: 5px;
   width:160px;
   margin-top:10px;
 }
+input[type=text]::-webkit-input-placeholder {
+  color:#a9a9a9;
+ }
 #ffffallback-update {
   padding:4px 9px;
   border-radius: 5px;

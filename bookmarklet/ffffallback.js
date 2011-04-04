@@ -215,7 +215,7 @@
 
     $.each(cssObject, function(declarations, selector) {
       cssText += '#ffffallback-content-container ' + selector + ' {\n';
-      cssText += 'color: magenta !important;';
+      cssText += 'color: magenta';
       $.each(declarations, function(value, key) {
         if(key === 'x-more') {
           cssText += '  ' + value + ';\n';
@@ -292,7 +292,7 @@
     var fontClass, row;
     $.each($.getAllFontsInUse(document.body), function(font) {
       fontClass = $.getClassForFont(font);
-      row = $.createElementWithContent('li', '<b>' + font + '</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="More CSS styles"></textarea>');
+      row = $.createElementWithContent('li', '<b>' + font + '</b><input type="text" value="" placeholder="Fallback font. Ex. Verdana" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="Adjust styles. Ex. color:red;"></textarea>');
       row.setAttribute('class', 'collapsed');
       $.event(row.getElementsByClassName('ffffallback-disclosure')[0], 'click', function() {
         if($.isClassOnElement('collapsed', row)) {
