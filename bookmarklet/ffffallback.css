@@ -12,28 +12,45 @@
 }
 
 #ffffallback-controller .ffffallback-more-values {
-  background: #666;
-  color: #ccc;
-  margin-left: 30px;
-  width: 141px;
+  margin-left: 0px;
+  width: 160px;
 }
 
 #ffffallback-controller .collapsed .ffffallback-more-values {
   display: none;
 }
 
-#ffffallback-controller .expanded .ffffallback-disclosure {
-  -webkit-transform:rotate(90deg);
+#ffffallback-controller .expanded .ffffallback-disclosure span{
+  -webkit-transform:rotate(-180deg);
+  text-shadow:rgba(0,0,0,0.8) 0 1px 0;
+  position:relative;
+  top:6px;
 }
-
 #ffffallback-controller .ffffallback-disclosure {
-  color: #ccc;
+  display:inline-block;
+  margin-left:2px;
+  height:27px;
+  width:20px;
+  position:relative;
+  top:-7px;
+  -webkit-border-radius:  3px;
+  -moz-border-radius:     3px;
+  border-radius:          3px;
+}
+#ffffallback-controller .ffffallback-disclosure:hover {
+  background:#2a2a2a;
+}
+#ffffallback-controller .ffffallback-disclosure span{
+  color: #777;
   display: inline-block;
+  font-size:12px;
+  position:relative;
+  left:4px;
+  top:7px;
   text-decoration: none;
-  width: 16px;
+  text-shadow:rgba(0,0,0,0.8) 0 -1px 0;
   -webkit-transition-property: -webkit-transform;
-  -webkit-transition-duration: 0.125s;
-
+  -webkit-transition-duration: 0.25s;
 }
 
 #ffffallback-content-container * {
@@ -143,6 +160,7 @@ body.ffffallback-hide-original #ffffallback-content-container {
   border-bottom-left-radius:        3px;
   -webkit-box-shadow: rgba(225, 225, 225, 0.4) 0px 1px 0px;
 }
+
 #ffffallback-radios label+label {
   border: 1px solid #555;
   border-width: 1px;
@@ -214,14 +232,14 @@ body.ffffallback-hide-original #ffffallback-content-container {
   list-style: none;
   margin: 0;
   margin-top: 1em;
-  padding:0 1em 1em 1em;
+  padding:0 0 1em 1em;
 }
 
 #ffffallback-fonts li b {
   display: block;
 }
 
-#ffffallback-fonts li input {
+#ffffallback-fonts li input, #ffffallback-fonts li textarea {
   display: inline-block;
   -webkit-box-shadow: rgb(68, 68, 68) 0px 1px 0px;
   background: rgb(102, 102, 102);
@@ -230,7 +248,7 @@ body.ffffallback-hide-original #ffffallback-content-container {
   color: rgb(204, 204, 204);
   font:normal 13px/normal Arial, sans-serif;
   padding: 5px;
-  width:150px;
+  width:160px;
   margin-top:10px;
 }
 #ffffallback-update {

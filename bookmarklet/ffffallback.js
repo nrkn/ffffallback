@@ -292,7 +292,7 @@
     var fontClass, row;
     $.each($.getAllFontsInUse(document.body), function(font) {
       fontClass = $.getClassForFont(font);
-      row = $.createElementWithContent('li', '<b>' + font + '</b><a href="#" class="ffffallback-disclosure">&#x25BA;</a><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><textarea class="ffffallback-more-values" placeholder="More CSS styles"></textarea>');
+      row = $.createElementWithContent('li', '<b>' + font + '</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="More CSS styles"></textarea>');
       row.setAttribute('class', 'collapsed');
       $.event(row.getElementsByClassName('ffffallback-disclosure')[0], 'click', function() {
         if($.isClassOnElement('collapsed', row)) {
@@ -309,7 +309,6 @@
     $.event(document.getElementById('ffffallback-display-mode-original'), 'click', function() {
       $.removeClassFromElement('ffffallback-hide-original', document.body);
       $.addClassToElement('ffffallback-hide-fallback', document.body);
-      //below is Josh's handywork... I have no idea how to toggle... plz help Mark
 
       $.each(document.getElementsByClassName('radio-checked'), function(elem) {
         $.removeClassFromElement('radio-checked', elem);
@@ -321,7 +320,6 @@
     $.event(document.getElementById('ffffallback-display-mode-both'), 'click', function() {
       $.removeClassFromElement('ffffallback-hide-original', document.body);
       $.removeClassFromElement('ffffallback-hide-fallback', document.body);
-      //below is Josh's handywork... I have no idea how to toggle... plz help Mark
       $.each(document.getElementsByClassName('radio-checked'), function(elem) {
         console.log('Oh elem is!', elem);
         $.removeClassFromElement('radio-checked', elem);
@@ -332,7 +330,6 @@
     $.event(document.getElementById('ffffallback-display-mode-fallback'), 'click', function() {
       $.addClassToElement('ffffallback-hide-original', document.body);
       $.removeClassFromElement('ffffallback-hide-fallback', document.body);
-      //below is Josh's handywork... I have no idea how to toggle... plz help Mark
       $.each(document.getElementsByClassName('radio-checked'), function(elem) {
         $.removeClassFromElement('radio-checked', elem);
       });
