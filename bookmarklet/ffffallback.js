@@ -318,15 +318,19 @@
       fontClass = $.getClassForFont(font);
       row = $.createElementWithContent('li', '<b>' + font + '</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75;"></textarea>');
       row.setAttribute('class', 'collapsed');
-      $.event(row.getElementsByClassName('ffffallback-disclosure')[0], 'click', function() {
-        if($.isClassOnElement('collapsed', row)) {
-          $.addClassToElement('expanded', row);
-          $.removeClassFromElement('collapsed', row);
-        } else {
-          $.addClassToElement('collapsed', row);
-          $.removeClassFromElement('expanded', row);
-        }
-      });
+
+      (function(row) {
+        $.event(row.getElementsByClassName('ffffallback-disclosure')[0], 'click', function() {
+          if($.isClassOnElement('collapsed', row)) {
+            $.addClassToElement('expanded', row);
+            $.removeClassFromElement('collapsed', row);
+          } else {
+            $.addClassToElement('collapsed', row);
+            $.removeClassFromElement('expanded', row);
+          }
+        });
+      })(row);
+
       fontList.appendChild(row);
     });
 
