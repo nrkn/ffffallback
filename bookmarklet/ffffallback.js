@@ -3,14 +3,6 @@
     return alert('FFFFALLBACK only works in Chrome, Safari, and Firefox right now. :(\n\nSorry,\n - Mark');
   }
 
-  if(typeof(console) == 'undefined') {
-    var console = {
-      log: function(message) {
-        //  alert(message);
-      }
-    }
-  }
-
   var $ = {
     memo: {},
   }
@@ -238,7 +230,7 @@
 
     $.each(cssObject, function(declarations, selector) {
       cssText += '#ffffallback-content-container ' + selector + ' {\n';
-      cssText += 'color: magenta';
+      cssText += 'color: magenta !important;';
       $.each(declarations, function(value, key) {
         if(key === 'x-more') {
           cssText += '  ' + value + ';\n';
@@ -263,6 +255,14 @@
   window.$fallback = $;
 
   $.init = function() {
+    if(!console || !console.log) {
+      var console = {
+        log: function(message) {
+          //  alert(message);
+        }
+      }
+    }
+
     console.log('start');
 
     var clonedCopy = $.createElementWithContent('div', document.body.innerHTML);
@@ -394,11 +394,13 @@
     });
   }
 
-  if(document.body) {
-    $.init();
+  //  Thanks to Dustin Diaz for this clever hack
+  //  http://dustindiaz.com/smallest-domready-ever
+  if(/in/(document.readyState)) {
+    window.addEventListener('load', function() {
+      $.init();
+    }, false);
   } else {
-  window.addEventListener('load', function() {
     $.init();
-  }, false);
   }
 })();
