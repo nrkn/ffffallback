@@ -230,7 +230,7 @@
 
     $.each(cssObject, function(declarations, selector) {
       cssText += '#ffffallback-content-container ' + selector + ' {\n';
-      cssText += 'color: magenta !important;';
+      cssText += '  color: magenta !important;\n';
       $.each(declarations, function(value, key) {
         if(key === 'x-more') {
           cssText += '  ' + value + ';\n';
@@ -313,26 +313,31 @@
     window.addEventListener('resize', resizeController, false);
     resizeController();
 
+    function addRowWithContent(content) {
+      var row = $.createElementWithContent('li', content);
+      row.setAttribute('class', 'collapsed');
+
+      $.event(row.getElementsByClassName('ffffallback-disclosure')[0], 'click', function() {
+        if($.isClassOnElement('collapsed', row)) {
+          $.addClassToElement('expanded', row);
+          $.removeClassFromElement('collapsed', row);
+        } else {
+          $.addClassToElement('collapsed', row);
+          $.removeClassFromElement('expanded', row);
+        }
+      });
+
+      fontList.appendChild(row);
+
+      return row;
+    }
+
     var fontClass, row;
     $.each($.getAllFontsInUse(document.body), function(font) {
       fontClass = $.getClassForFont(font);
-      row = $.createElementWithContent('li', '<b>' + font + '</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75;"></textarea>');
-      row.setAttribute('class', 'collapsed');
-
-      (function(row) {
-        $.event(row.getElementsByClassName('ffffallback-disclosure')[0], 'click', function() {
-          if($.isClassOnElement('collapsed', row)) {
-            $.addClassToElement('expanded', row);
-            $.removeClassFromElement('collapsed', row);
-          } else {
-            $.addClassToElement('collapsed', row);
-            $.removeClassFromElement('expanded', row);
-          }
-        });
-      })(row);
-
-      fontList.appendChild(row);
+      addRowWithContent('<b>' + font + '</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75;"></textarea>');
     });
+    addRowWithContent('<b>Entire fallback body</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="*" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75;"></textarea>');
 
     $.event(document.getElementById('ffffallback-display-mode-original'), 'click', function() {
       $.removeClassFromElement('ffffallback-hide-original', document.body);
@@ -378,12 +383,13 @@
         }
         var moreTextArea = fontInput.parentNode.getElementsByClassName('ffffallback-more-values')[0];
         var className = fontInput.getAttribute('data:font-class');
+        var selector = (className === '*') ? '*' : ('.' + className);
         var value = $.trimString(fontInput.value);
         var moreValues = $.trimString(moreTextArea.value);
         if(!value && !moreValues) {
           return;
         }
-        cssDeclarations['.' + className] = {
+        cssDeclarations[selector] = {
           //  TODO: 'font' instead of font-family?
           'font-family': value,
           'x-more': moreValues
