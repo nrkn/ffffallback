@@ -22,8 +22,8 @@
 }
 
 #ffffallback-controller .expanded .ffffallback-disclosure span{
-  -moz-transform: rotate(-180deg);
-  -webkit-transform:rotate(-180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform:rotate(180deg);
   text-shadow:rgba(0,0,0,0.8) 0 1px 0;
   position:relative;
   top:6px;
