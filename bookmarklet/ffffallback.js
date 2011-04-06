@@ -286,10 +286,11 @@
   <form id="ffffallback-toggles">\
   <h1 id="ffffallback-title"><abbr title="Fast, flexible font fallback!">ffffallback!</abbr> <input type="submit" id="ffffallback-update" value="Update" /></h1>\
   <div id="ffffallback-radios">\
-  <label><input type="radio" name="ffffallback-display-mode" accesskey="o" id="ffffallback-display-mode-original" /> Original</label>\
+  <label><input type="radio" name="ffffallback-display-mode" accesskey="o" id="ffffallback-display-mode-original" /> Web font</label>\
   <label class="radio-checked"><input type="radio" name="ffffallback-display-mode" accesskey="b" id="ffffallback-display-mode-both" checked /> Both</label>\
   <label><input type="radio" name="ffffallback-display-mode" accesskey="f" id="ffffallback-display-mode-fallback" /> Fallback</label>\
   </div>\
+  <!--<div id="ffffallback-instructions">Test fallback fonts for each web font declaration.</div-->\
   <ul id="ffffallback-fonts"></ul>\
   </form>\
   ');
@@ -337,7 +338,7 @@
       fontClass = $.getClassForFont(font);
       addRowWithContent('<b>' + font + '</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75;"></textarea>');
     });
-    addRowWithContent('<b>Entire fallback body</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="*" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75;"></textarea>');
+    addRowWithContent('<b class="global"><i>Or</i> Set a global fallback</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="*" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75 !important;"></textarea>');
 
     $.event(document.getElementById('ffffallback-display-mode-original'), 'click', function() {
       $.removeClassFromElement('ffffallback-hide-original', document.body);

@@ -40,7 +40,7 @@
   border-radius:          3px;
 }
 #ffffallback-controller .ffffallback-disclosure:hover {
-  background:#2a2a2a;
+  background:#111;
 }
 #ffffallback-controller .ffffallback-disclosure span{
   color: #777;
@@ -104,16 +104,16 @@ body.ffffallback-hide-original #ffffallback-content-container {
   text-shadow:rgba(255,255,255,0.6) 0 1px 0;
   font-weight: bold;
   margin:0 !important;
-  padding: 0.5em 1em;
+  padding: 0.5em 1em !important;
 }
 #ffffallback-controller h1 abbr {
-  background:url(ffffallback-logo.png) no-repeat 0 0;
-  border:0;
-  display:inline-block;
-  height:16px;
-  margin-left:-9px;
-  width:116px;
-  text-indent:-99999em;
+  background:url(ffffallback-logo.png) no-repeat 0 0 !important;
+  border:0 !important;
+  display:inline-block !important;
+  height:16px !important;
+  margin-left:-9px !important;
+  width:116px !important;
+  text-indent:-99999em !important;
 }
 #ffffallback-controller ul {
   padding:0;
@@ -196,7 +196,12 @@ body.ffffallback-hide-original #ffffallback-content-container {
   display:none;
 }
 
-
+#ffffallback-instructions {
+  background:#B3B3B3;
+  
+  font-weight:bold;
+  padding:0.5em 1em;
+}
 
 #ffffallback-fonts {
   list-style: none;
@@ -235,24 +240,43 @@ body.ffffallback-hide-original #ffffallback-content-container {
 
 #ffffallback-fonts li {
   border-bottom:1px solid #222;
+  border-top:1px solid #444;
   list-style: none;
   margin: 0;
-  margin-top: 1em;
-  padding:0 0 1em 1em;
+  padding:0.5em 0 0.5em 1em;
 }
 
 #ffffallback-fonts li b {
   display: block;
+  font-size:14px;
+  text-shadow: #1a1a1a 0px 1px 0px;
+}
+#ffffallback-fonts li b.global {
+  font-style:italic;
+  margin-top:5px;
+  position:relative;
+}
+#ffffallback-fonts li b.global i {
+  background: #333;
+  color:#aaa;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: bold;
+  left: 80px;
+  padding: 0px 5px;
+  position: absolute;
+  text-transform: uppercase;
+  top: -18px;
 }
 
 #ffffallback-fonts li input, #ffffallback-fonts li textarea {
+  color: #f2f2f2;
   display: inline-block;
   -webkit-box-shadow: rgb(68, 68, 68) 0px 1px 0px;
   background: rgb(102, 102, 102);
   border: 1px solid black;
   border-radius:4px;
-  color: #eee;
-  font:normal 13px/normal Arial, sans-serif;
+  font:normal 13px/1.125 Helvetica, sans-serif;
   padding: 5px;
   width:160px;
   margin-top:10px;
