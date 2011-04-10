@@ -290,6 +290,7 @@ footer p a[href="http://twitter.com/jbrewer"], footer p a[href="http://twitter.c
   color:rgba(143,187,204,0.4);
 }
 footer p a span {color:rgba(143,187,204,1)}
+footer p a:hover span {color:#64c2e8;}
 footer .twitter-share-button {
   position:relative;
   top:5px;
