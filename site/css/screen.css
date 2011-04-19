@@ -141,7 +141,7 @@ span.horizon {
   position:absolute;
 }
 span.rising {width:100%;  margin-top:10.5em;}
-span.setting {width:55em; margin-top:2.5em;margin-left:-16em;}
+span.setting {width:52em; margin-top:2.5em;margin-left:-22em;}
 #main {
   border-left: 1px solid #423e39;
   margin:0 0 0 4em;
@@ -271,7 +271,7 @@ h3 {
 }
 
 #main ol + p {
-  background:url(../images/bang.png) no-repeat 3px 2px;
+  background:url(../images/bang.png) no-repeat 3px 1px;
   font-weight:bold;
   padding-left:2em;
   margin-left:-2em;
@@ -290,7 +290,9 @@ footer p a[href="http://twitter.com/jbrewer"], footer p a[href="http://twitter.c
   color:rgba(143,187,204,0.4);
 }
 footer p a span {color:rgba(143,187,204,1)}
-footer p a:hover span {color:#64c2e8;}
+footer p a[href="http://twitter.com/jbrewer"]:hover span, footer p a[href="http://twitter.com/shinypb"]:hover span {
+  color:#64c2e8;
+}
 footer .twitter-share-button {
   position:relative;
   top:5px;
@@ -300,6 +302,52 @@ footer .twitter-share-button {
 
 
 /* media queries for responsive design */
+/* One-column - iPhone portrait and any 320px device */
+@media (max-width:640px){
+	.container{
+		width: 320px;
+	}
+	#secondary{
+		margin-left: 15px;
+	}
+}
+
+/* One-column - iPhone landscape */
+@media (orientation:landscape) and (min-width:321px) and (max-width:480px){
+	/*
+	.container{
+		width: 480px;
+	}*/
+}
+
+/* Two-column - iPad */
+@media (min-width:641px) and (max-width:960px){
+	hgroup {
+		margin-bottom:10em;
+	}
+
+}
+
+/* 15" MacBook Pro */
+@media (min-width:1281px) and (max-width:1600px){
+	.container{
+		width: 1280px;
+	}
+}
+
+/* 17" MacBook Pro, iMac */
+@media (min-width:1601px) and (max-width:1920px){
+	.container{
+		width: 1600px;
+	}
+}
+
+/* HD */
+@media (min-width:1920px) and (max-width:2240px){
+	.container{
+		width: 1920px;
+	}
+}
 
 @media all and (orientation:portrait) {
 

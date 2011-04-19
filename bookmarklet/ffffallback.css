@@ -73,8 +73,16 @@ body.ffffallback-hide-original #ffffallback-content-container {
   display: block!important;
   opacity: 1!important;
 }
+#ffffallback-controller {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent; 
+}
 
-/* webkit scrollbar stuff from http://beautifulpixels.com/goodies/create-custom-webkit-scrollbar/ */
 #ffffallback-controller {
   display: block!important;
   position: fixed!important;
