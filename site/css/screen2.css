@@ -137,10 +137,9 @@ span.horizon {
   border-top:1px solid #423E39;
   height:1px;
   margin-left:0; 
-
   position:absolute;
 }
-span.rising {width:100%;  margin-top:10.5em;}
+span.rising {width:100%;  margin-top:15em;}
 span.setting {width:52em; margin-top:2.5em;margin-left:-20em;}
 #main {
   border-left: 1px solid #423e39;
@@ -154,7 +153,7 @@ span.setting {width:52em; margin-top:2.5em;margin-left:-20em;}
   position:relative;
 }
 hgroup {
-  margin:0 0 5em 0;
+  margin:0 0 12em 0;
 }
 hgroup h1 {
   font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
@@ -192,18 +191,19 @@ hgroup h2 {
   color:#eebe5f;
   font-size:1.3125em;
   font-weight:200;
-  margin-left:3.75em;
+  letter-spacing:0.1em;
+  margin-top:0.5em;
 }
 
 .brave {
   background: #2d2a27;
   color:#fef1d8;
   font-size:1.05em;
-  left:26.75em;
+  left:8em;
   line-height:1;
   position:absolute;
   text-transform:uppercase;
-  top:2em;
+  top:5.25em;
   height: 7em;
   width:  7em;
   -webkit-border-radius: 7em;
@@ -248,7 +248,7 @@ hgroup + p, hgroup + p + p {
 
 .bkmrklt {
   font-size:1.3125em;
-  margin-bottom: 3em;
+  margin:2em 0 3em;
   position:relative;
 }
 
@@ -307,6 +307,7 @@ hgroup + p, hgroup + p + p {
 }
 .bkmrklt span {
   color:#eebe5f;
+  font-size:0.9125em;
   font-weight:200;
   left: 11em;
   letter-spacing:4px;
@@ -326,6 +327,7 @@ h3 {
   right: -21.5em;
   width: 16em;
 }
+
 #main ol {
   margin:0 0 1.5em;
 }
