@@ -250,6 +250,18 @@ hgroup + p, hgroup + p + p {
   margin-bottom: 3em;
   position:relative;
 }
+
+@-webkit-keyframes drag-me {
+  from {
+    top:0;
+    left:0;
+  }
+  to {
+    top:-20px;
+    left:30px;
+  }
+}
+
 .bkmrklt a {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid #2D2A27;
@@ -269,17 +281,27 @@ hgroup + p, hgroup + p + p {
   -o-box-shadow:      0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
   box-shadow:         0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
 }
+.bkmrklt a:hover {
+  -webkit-animation-name: drag-me;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in-out; 
+}
 .bkmrklt a:after { 
-  content: attr(title);
+  content: attr(data-drag);
   display:none;
 }
 .bkmrklt a:hover:after { 
-  cursor:move;
+  background:rgba(0,0,0,0.8);
   display:block;
   position:absolute;
-  top:-2em;
-  left:25%; 
-  width:4em;
+  top:-3em;
+  left:30%; 
+  padding:0.5em 1em;
+  font-family: "proxima-nova-1","proxima-nova-2", "Helvetica Neue", Calibri, Arial, Helvetica, sans-serif;
+  font-size:0.5em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 .bkmrklt span {
   color:#eebe5f;
