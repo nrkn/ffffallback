@@ -164,18 +164,20 @@ hgroup {
   text-indent: -999em;
   height:80px;
   width:409px;*/
-  margin:0 0 5em -4.5625em;
+  margin:0 0 5em 0;
 
 }
 hgroup h1 {
-  font-family:"kulturista-web-1","kulturista-web-2";
+  font-family:"kulturista-web-1","kulturista-web-2", Candara, "Courier New";
   font-size:3em;
+  font-weight:200;
   text-transform:uppercase;
 }
 
 hgroup h2 {
   color:#eebe5f;
-  font-size:1.5em;
+  font-size:1.3125em;
+  font-weight:200;
 }
 
 /* Really wish H&FJ webfonts were available… but they're not. Image replacement it is.
