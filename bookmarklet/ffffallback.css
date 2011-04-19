@@ -74,7 +74,6 @@ body.ffffallback-hide-original #ffffallback-content-container {
   opacity: 1!important;
 }
 
-/* webkit scrollbar stuff from http://beautifulpixels.com/goodies/create-custom-webkit-scrollbar/ */
 #ffffallback-controller {
   display: block!important;
   position: fixed!important;
