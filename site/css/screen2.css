@@ -180,7 +180,7 @@ hgroup h2 {
   font-weight:200;
 }
 
-/* Really wish H&FJ webfonts were available… but they're not. Image replacement it is.
+/* Really wish H&FJ webfonts were available… but they're not. Image replacement it is.*/
 .brave {
   background: #2d2a27;
   color:#fef1d8;
@@ -212,7 +212,8 @@ hgroup h2 {
   border-radius:          150px;
   background-clip: padding-box; 
   z-index:-1;
-}*/
+}
+/*
 .brave {
   background: #2d2a27 url(../images/bravenewworld.png) no-repeat 0 0;
   color:#fef1d8;
@@ -229,7 +230,7 @@ hgroup h2 {
   display:block;
   text-indent:-9999em;
 }
-
+*/
 hgroup + p, hgroup + p + p {
   font-size: 1.3125em;
   line-height:1.1429;
