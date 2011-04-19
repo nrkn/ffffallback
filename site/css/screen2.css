@@ -168,11 +168,36 @@ hgroup {
 
 }
 hgroup h1 {
-  font-family:"kulturista-web-1","kulturista-web-2", Candara, "Courier New";
+  font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
   font-size:3em;
   font-weight:200;
+  line-height:1;
+  margin-left:1.35em;
   text-transform:uppercase;
 }
+
+hgroup h1:before { 
+  content: "F"; 
+  background:#fef1d8;
+  border:1px solid #2d2a27;
+  color:#2d2a27;
+  font-size:0.5em;
+  font-weight:bold;
+  margin-right:0.5em;
+  padding-top:0.25em;
+  position:absolute;
+  text-align:center;
+  vertical-align:center;
+  top:0;
+  left:0;
+  width:1.5em;
+  height:1.25em;
+  -moz-box-shadow:    3px 3px 0 #b0a796, 4px 4px 0 #2d2a27, 7px 7px 0 #615c53;
+  -webkit-box-shadow: 3px 3px 0 #b0a796, 4px 4px 0 #2d2a27, 7px 7px 0 #615c53;
+  -o-box-shadow:      3px 3px 0 #b0a796, 4px 4px 0 #2d2a27, 7px 7px 0 #615c53;
+  box-shadow:         3px 3px 0 #b0a796, 4px 4px 0 #2d2a27, 7px 7px 0 #615c53;
+}
+
 
 hgroup h2 {
   color:#eebe5f;
@@ -213,6 +238,18 @@ hgroup h2 {
   background-clip: padding-box; 
   z-index:-1;
 }
+.brave i {
+  font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
+  font-style: normal;
+  font-weight: normal;
+  top: 1.75em;
+  position: relative;
+  width: 3em;
+  display: block;
+  left: 2em;
+}
+
+
 /*
 .brave {
   background: #2d2a27 url(../images/bravenewworld.png) no-repeat 0 0;
@@ -244,26 +281,40 @@ hgroup + p, hgroup + p + p {
   position:relative;
 }
 .bkmrklt a {
-  background:url(../images/bookmarklet-button.png) no-repeat 0 0;
-  border:0;
-  direction: ltr;
-  display:block;
-  overflow: hidden;
-  text-indent:-9999em;
-  text-align: left; 
-  height:57px;
-  width:215px;  
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #2D2A27;
+  color: #F0E4CC;
+  font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
+  font-size: 1.125em;
+  padding: .5em 1em;
+  position:relative;
+  text-align:center;
+  text-transform: uppercase;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow:    0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
+  -o-box-shadow:      0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
+  box-shadow:         0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
 }
-.bkmrklt a:hover {
-  border-bottom:0;
+.bkmrklt a:after { 
+  content: "attr(data-helper)";
+  display:none;
+}
+.bkmrklt a:hover:after { 
+  cursor:move;
+  display:block;
+  position:absolute;
+  top:-2em;
+  left:25%; 
+  width:4em;
 }
 .bkmrklt span {
   color:#eebe5f;
   left: 11em;
   letter-spacing:4px;
-  position: absolute;
   text-transform:uppercase;
-  top: 0.95em;
 }
 
 h3 {
