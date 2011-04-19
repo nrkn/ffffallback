@@ -149,7 +149,7 @@ span.setting {width:52em; margin-top:2.5em;margin-left:-20em;}
 }
 
 .content {
-  max-width:32em;
+  width:32em;
   position:relative;
 }
 hgroup {
@@ -243,7 +243,7 @@ hgroup + p, hgroup + p + p {
   font-size: 1.3125em;
   line-height:1.1429;
   margin-bottom:1.5em;
-  max-width:25em;
+  width:25em;
 }
 
 .bkmrklt {
@@ -334,7 +334,11 @@ h3 {
 #main ol li {
   margin-bottom:1em;
 }
-
+#main ol .note {
+  display:block;
+  font-size:0.8125em;
+  margin-top:1em;
+}
 #main ol + p {
   background:url(../images/bang.png) no-repeat 3px 1px;
   font-weight:bold;
@@ -369,11 +373,8 @@ footer .twitter-share-button {
 /* media queries for responsive design */
 /* One-column - iPhone portrait and any 320px device */
 @media (max-width:640px){
-	.container{
+	.content{
 		width: 320px;
-	}
-	#secondary{
-		margin-left: 15px;
 	}
 }
 
@@ -385,7 +386,7 @@ footer .twitter-share-button {
 	}*/
 }
 
-/* Two-column - iPad */
+/* iPad */
 @media (min-width:641px) and (max-width:960px){
 	hgroup {
 		margin-bottom:10em;
@@ -393,34 +394,7 @@ footer .twitter-share-button {
 
 }
 
-/* 15" MacBook Pro */
-@media (min-width:1281px) and (max-width:1600px){
-	.container{
-		width: 1280px;
-	}
-}
 
-/* 17" MacBook Pro, iMac */
-@media (min-width:1601px) and (max-width:1920px){
-	.container{
-		width: 1600px;
-	}
-}
-
-/* HD */
-@media (min-width:1920px) and (max-width:2240px){
-	.container{
-		width: 1920px;
-	}
-}
-
-@media all and (orientation:portrait) {
-
-}
-
-@media all and (orientation:landscape) {
-
-}
 
 /* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
    consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */

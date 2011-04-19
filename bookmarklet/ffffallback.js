@@ -98,6 +98,8 @@
 
     var knownBoringFonts = [
       'helvetica',
+      'helvetica neue',
+      'normal helvetica',
       'lucida grande',
       'tahoma',
       'microsoft sans serif',
@@ -336,7 +338,7 @@
     var fontClass, row;
     $.each($.getAllFontsInUse(document.body), function(font) {
       fontClass = $.getClassForFont(font);
-      addRowWithContent('<b>' + font + '</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75;"></textarea>');
+      addRowWithContent('<b>' + font + '</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="' + fontClass + '" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75 !important;"></textarea>');
     });
     addRowWithContent('<b class="global"><i>Or</i> Set a global fallback</b><input type="text" value="" placeholder="Fallback font" class="ffffallback-specify-font" data:font-class="*" /><a href="#" class="ffffallback-disclosure"><span>&#x25bc;</span></a><textarea class="ffffallback-more-values" placeholder="e.g. line-height: 1.75 !important;"></textarea>');
 
