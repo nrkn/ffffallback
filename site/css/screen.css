@@ -222,12 +222,12 @@ hgroup + p, hgroup + p + p {
   max-width:25em;
 }
 
-.bkmrklt {
+#bkmrklt {
   font-size:1.3125em;
   margin-bottom: 3em;
   position:relative;
 }
-.bkmrklt a {
+#bkmrklt a {
   background:url(../images/bookmarklet-button.png) no-repeat 0 0;
   border:0;
   direction: ltr;
@@ -238,10 +238,10 @@ hgroup + p, hgroup + p + p {
   height:57px;
   width:215px;  
 }
-.bkmrklt a:hover {
+#bkmrklt a:hover {
   border-bottom:0;
 }
-.bkmrklt span {
+#bkmrklt span {
   color:#eebe5f;
   font-weight:200;
   left: 11em;
