@@ -158,7 +158,7 @@ hgroup {
 }
 hgroup h1 {
   font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
-  font-size:3.75em;
+  font-size:3.5em;
   font-weight:200;
   line-height:1;
   margin-left:1.35em;
@@ -177,7 +177,7 @@ hgroup h1:before {
   position:absolute;
   text-align:center;
   vertical-align:center;
-  top:0.05em;
+  top:0.1em;
   left:0;
   width:1.5em;
   height:1.25em;
@@ -195,21 +195,20 @@ hgroup h2 {
   margin-left:3.75em;
 }
 
-/* Really wish H&FJ webfonts were available… but they're not. Image replacement it is.*/
 .brave {
   background: #2d2a27;
   color:#fef1d8;
   font-size:1.05em;
-  left:30em;
+  left:27.5em;
   line-height:1;
   position:absolute;
   text-transform:uppercase;
   top:3.85em;
-  height: 170px;
-  width:  170px;
-  -webkit-border-radius: 170px;
-  -moz-border-radius:    170px;
-  border-radius:         170px;
+  height: 7em;
+  width:  7em;
+  -webkit-border-radius: 7em;
+  -moz-border-radius:    7em;
+  border-radius:         7em;
   background-clip: padding-box;
   z-index:100;
 }
@@ -220,11 +219,11 @@ hgroup h2 {
   text-transform:uppercase;
   left:10px;
   top: 10px;
-  height:150px;
-  width: 150px;
-  -webkit-border-radius:  150px;
-  -moz-border-radius:     150px;
-  border-radius:          150px;
+  height:6em;
+  width: 6em;
+  -webkit-border-radius:  6em;
+  -moz-border-radius:     6em;
+  border-radius:          6em;
   background-clip: padding-box; 
   z-index:-1;
 }
@@ -234,7 +233,7 @@ hgroup h2 {
   font-weight: normal;
   top: 1.75em;
   position: relative;
-  width: 3em;
+  width: 4em;
   display: block;
   left: 2em;
 }
@@ -261,6 +260,7 @@ hgroup + p, hgroup + p + p {
   position:relative;
   text-align:center;
   text-transform: uppercase;
+  text-shadow:0 1px 1px #2D2A27;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -286,7 +286,7 @@ hgroup + p, hgroup + p + p {
   font-weight:200;
   left: 11em;
   letter-spacing:4px;
-  margin-left:1em;
+  margin-left:0.5em;
   text-transform:uppercase;
 }
 
