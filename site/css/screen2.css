@@ -154,15 +154,28 @@ span.setting {width:52em; margin-top:2.5em;margin-left:-22em;}
   position:relative;
 }
 hgroup {
-  background:url(../images/brand.png) no-repeat 0 0;
+/*  background:url(../images/brand.png) no-repeat 0 0;
   display: block;  
   direction: ltr;
+  font-family:"kulturista-web-1","kulturista-web-2";
   margin:0 0 5em -4.5625em;
   overflow: hidden;  
   text-align: left; 
   text-indent: -999em;
   height:80px;
-  width:409px;
+  width:409px;*/
+  margin:0 0 5em -4.5625em;
+
+}
+hgroup h1 {
+  font-family:"kulturista-web-1","kulturista-web-2";
+  font-size:3em;
+  text-transform:uppercase;
+}
+
+hgroup h2 {
+  color:#eebe5f;
+  font-size:1.5em;
 }
 
 /* Really wish H&FJ webfonts were available… but they're not. Image replacement it is.
