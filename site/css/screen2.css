@@ -154,22 +154,11 @@ span.setting {width:52em; margin-top:2.5em;margin-left:-22em;}
   position:relative;
 }
 hgroup {
-/*  background:url(../images/brand.png) no-repeat 0 0;
-  display: block;  
-  direction: ltr;
-  font-family:"kulturista-web-1","kulturista-web-2";
-  margin:0 0 5em -4.5625em;
-  overflow: hidden;  
-  text-align: left; 
-  text-indent: -999em;
-  height:80px;
-  width:409px;*/
   margin:0 0 5em 0;
-
 }
 hgroup h1 {
   font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
-  font-size:3em;
+  font-size:3.75em;
   font-weight:200;
   line-height:1;
   margin-left:1.35em;
@@ -182,13 +171,13 @@ hgroup h1:before {
   border:1px solid #2d2a27;
   color:#2d2a27;
   font-size:0.5em;
-  font-weight:bold;
+  font-weight:200;
   margin-right:0.5em;
   padding-top:0.25em;
   position:absolute;
   text-align:center;
   vertical-align:center;
-  top:0;
+  top:0.05em;
   left:0;
   width:1.5em;
   height:1.25em;
@@ -203,6 +192,7 @@ hgroup h2 {
   color:#eebe5f;
   font-size:1.3125em;
   font-weight:200;
+  margin-left:3.75em;
 }
 
 /* Really wish H&FJ webfonts were available… but they're not. Image replacement it is.*/
@@ -249,25 +239,6 @@ hgroup h2 {
   left: 2em;
 }
 
-
-/*
-.brave {
-  background: #2d2a27 url(../images/bravenewworld.png) no-repeat 0 0;
-  color:#fef1d8;
-  font-size:1em;
-  left:27.75em;
-  line-height:1;
-  position:absolute;
-  top:1.5em;
-  height: 176px;
-  width:  176px;
-  z-index:100;
-}
-.brave i {
-  display:block;
-  text-indent:-9999em;
-}
-*/
 hgroup + p, hgroup + p + p {
   font-size: 1.3125em;
   line-height:1.1429;
@@ -299,7 +270,7 @@ hgroup + p, hgroup + p + p {
   box-shadow:         0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
 }
 .bkmrklt a:after { 
-  content: "attr(data-helper)";
+  content: attr(title);
   display:none;
 }
 .bkmrklt a:hover:after { 
@@ -312,8 +283,10 @@ hgroup + p, hgroup + p + p {
 }
 .bkmrklt span {
   color:#eebe5f;
+  font-weight:200;
   left: 11em;
   letter-spacing:4px;
+  margin-left:1em;
   text-transform:uppercase;
 }
 
