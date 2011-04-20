@@ -169,7 +169,7 @@ hgroup h1 {
 .wf-inactive hgroup h1{
   letter-spacing:4px;
 }
-body.ie6 hgroup h1,body.ie7 hgroup h1 {margin-left:0;}
+.ie6 hgroup h1,.ie7 hgroup h1 {margin-left:0;}
 
 hgroup h1:before { 
   content: "F"; 
@@ -317,7 +317,7 @@ hgroup + p + p {
   -o-box-shadow:      0 1px 0 rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
   box-shadow:         0 1px 0 rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
 }
-body.ie6 .bkmrklt a {color: #F0E4CC;}
+.ie6 .bkmrklt a {color: #F0E4CC;}
 
 .bkmrklt a:hover {
   -webkit-animation-name: drag-me;
