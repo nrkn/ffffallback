@@ -274,7 +274,7 @@
 
     //  Copy padding. TBD -- give cloned copy negative version of padding as margin
     //  to counteract positioning? Doesn't seem necessary but not sure why.
-    var bodyStyle = getComputedStyle(document.body);
+    var bodyStyle = $.getComputedStyleOfElement(document.body);
     clonedCopy.style.paddingBottom = bodyStyle['padding-bottom'] || 0;
     clonedCopy.style.paddingLeft = bodyStyle['padding-left'] || 0;
     clonedCopy.style.paddingRight = bodyStyle['padding-right'] || 0;
