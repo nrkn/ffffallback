@@ -140,17 +140,23 @@ span.horizon {
   position:absolute;
 }
 span.rising {width:100%;  margin-top:15em;}
-span.setting {width:52em; margin-top:2.5em;margin-left:-20em;}
+/*span.setting {width:52em; margin-top:2.5em;margin-left:-20em;}*/
+span.setting {width:100%; position:absolute;bottom:2.5em;}
+
+
+
 #main {
-  border-left: 1px solid #423e39;
-  margin:0 0 0 4em;
-  padding:3em 0 0 7em;
+  border: 1px solid #423e39;
+  border-width:0 1px;
+  margin:0 4em;
+  padding:3em 0 0 0;
   position:relative;
 }
 
 .content {
-  width:32em;
+  width:31em;
   position:relative;
+  margin: 0 auto;
 }
 hgroup {
   margin:0 0 12em 0;
@@ -239,12 +245,24 @@ hgroup h2 {
   left: 2.25em;
 }
 
-hgroup + p, hgroup + p + p {
+hgroup + p {
   font-size: 1.3125em;
   line-height:1.1429;
   margin-bottom:1.5em;
-  width:25em;
+  width:24em;
 }
+hgroup + p + p {
+  font-size: 1.125em;
+  line-height:1.5;
+  margin-bottom:1.5em;
+}
+.smcap {
+  font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
+  font-size:0.9em;
+  font-weight:200;
+  text-transform:uppercase;
+}
+
 
 .bkmrklt {
   font-size:1.3125em;
@@ -278,10 +296,10 @@ hgroup + p, hgroup + p + p {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  -moz-box-shadow:    0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
-  -webkit-box-shadow: 0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
-  -o-box-shadow:      0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
-  box-shadow:         0 1px 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
+  -moz-box-shadow:    0 1px 0 rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
+  -o-box-shadow:      0 1px 0 rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
+  box-shadow:         0 1px 0 rgba(255,255,255,0.1), inset 0 1px 0 rgba(0,0,0,0.2);
 }
 .bkmrklt a:hover {
   -webkit-animation-name: drag-me;
