@@ -165,9 +165,14 @@ hgroup h1 {
   font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
   font-size:3.5em;
   font-weight:200;
+  letter-spacing:4px;
   line-height:1;
   margin-left:1.35em;
   text-transform:uppercase;
+}
+
+.wf-active hgroup h1{
+  letter-spacing:0px;
 }
 
 hgroup h1:before { 
@@ -249,7 +254,7 @@ hgroup + p {
   font-size: 1.3125em;
   line-height:1.1429;
   margin-bottom:1.5em;
-  width:24em;
+  xwidth:24em;
 }
 hgroup + p strong {
   line-height: 1.25;
@@ -267,7 +272,7 @@ hgroup + p + p {
 }
 .smcap {
   font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
-  font-size:0.9em;
+  font-size:1em;
   font-weight:200;
   text-transform:uppercase;
 }
@@ -360,10 +365,22 @@ h3 a {
 #main ol li {
   margin-bottom:1em;
 }
+#main ol li:last-child {
+  margin-bottom:0;
+}
 #main ol .note {
   display:block;
   font-size:0.8125em;
   margin-top:1em;
+}
+#main aside {
+  color:rgba(202,191,171,0.5);
+  font-size: 0.75em;
+  line-height: 1.7;
+  margin:1em 0 4em;
+}
+aside strong {
+  margin-left:-8px;
 }
 #main aside + p {
   background:url(../images/bang.png) no-repeat 3px 1px;
@@ -374,12 +391,7 @@ h3 a {
 .ie #main ol.steps {
   display:none;
 } 
-#main aside {
-  color:rgba(202,191,171,0.5);
-  font-size: 0.75em;
-  line-height: 1.7;
-  margin:0 0 1.5em;
-}
+
 
 
 footer {
@@ -405,23 +417,34 @@ footer .twitter-share-button {
 /* media queries for responsive design */
 /* One-column - iPhone portrait and any 320px device */
 @media (max-width:640px){
+  body {font-size:85%;}
+  .typekit-badge {display:none;}
 	.content{
 		width: 320px;
 	}
-}
-
-/* One-column - iPhone landscape */
-@media (orientation:landscape) and (min-width:321px) and (max-width:480px){
-	/*
-	.container{
-		width: 480px;
-	}*/
+	#main {
+	  border:0;
+	  margin:0;
+	  padding-top:2em;
+	}
+	.rising {margin-top:13em;}
+	.setting {margin-top:-25em;}
+	hgroup h1 {font-size:2.6em;}
+	hgroup h2 {font-size:1em;}
+	.brave {left:5.25em;top:4.5em;}
+	hgroup + p strong {font-size:0.9em;}
+	.bkmrklt {text-align:center;}
+	.bkmrklt span {display:block;margin-top:1em;}
+	footer {font-size:95%;}
 }
 
 /* iPad */
 @media (min-width:641px) and (max-width:960px){
-	hgroup {
-		margin-bottom:10em;
+  #main {
+    margin:0 2em;
+  }
+	.content {
+		
 	}
 
 }
