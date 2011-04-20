@@ -1,6 +1,6 @@
 (function() {
-  if(navigator.userAgent.indexOf('MSIE') >= 0) {
-    return alert('FFFFALLBACK only works in Chrome, Safari, and Firefox right now. :(\n\nSorry,\n - Mark');
+  if(navigator.userAgent.indexOf('MSIE') >= 0 || navigator.userAgent.indexOf('Firefox/3') >= 0) {
+    return alert('FFFFALLBACK only works in Chrome, Safari, and Firefox 4 right now. :(\n\nSorry,\n - Mark');
   }
 
   var $ = {
