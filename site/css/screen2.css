@@ -420,10 +420,10 @@ footer .twitter-share-button {
 	  margin:0;
 	  padding-top:2em;
 	}
-	.rising {margin-top:12em;}
-	.setting {margin-top:-22em;}
-	hgroup h1 {font-size:2.6em;}
-	hgroup h2 {font-size:1em;}
+	.rising {margin-top:12em !important;}
+	.setting {margin-top:-22em !important;}
+	hgroup h1 {font-size:2.6em !important;}
+	hgroup h2 {font-size:1.2em;letter-spacing:normal;}
 	.brave {left:5.25em;top:4.5em;}
 	hgroup + p strong {font-size:0.9em;}
 	.bkmrklt {text-align:center;}
