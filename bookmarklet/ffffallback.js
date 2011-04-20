@@ -116,7 +116,9 @@
       'georgia',
       'impact',
       'lucida sans unicode',
-      'times'
+      'times',
+      'sans serif',
+      'serif'
     ];
 
     var interestingFonts = [];
