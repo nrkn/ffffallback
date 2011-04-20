@@ -133,6 +133,7 @@ body {
   height:100%;
   width:100%;
 }
+
 span.horizon { 
   border-top:1px solid #423E39;
   height:1px;
@@ -140,10 +141,7 @@ span.horizon {
   position:absolute;
 }
 span.rising {width:100%;  margin-top:15em;}
-/*span.setting {width:52em; margin-top:2.5em;margin-left:-20em;}*/
 span.setting {width:100%; margin-top: -20em;}
-
-
 
 #main {
   border: 1px solid #423e39;
@@ -165,14 +163,12 @@ hgroup h1 {
   font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
   font-size:3.5em;
   font-weight:200;
-  letter-spacing:4px;
   line-height:1;
   margin-left:1.35em;
   text-transform:uppercase;
 }
-
-.wf-active hgroup h1{
-  letter-spacing:0px;
+.wf-inactive hgroup h1{
+  letter-spacing:4px;
 }
 
 hgroup h1:before { 
@@ -272,12 +268,12 @@ hgroup + p + p {
 }
 .smcap {
   font-family:"kulturista-web-1","kulturista-web-2", "Courier New";
-  font-size:1em;
+  font-size:0.7em;
   font-weight:200;
   text-transform:uppercase;
 }
-.wf-active .smcap {
-  font-size:0.7em;
+.wf-inactive .smcap {
+  font-size:1em;
 }
 
 .bkmrklt {
@@ -393,7 +389,6 @@ aside strong {
 } 
 
 
-
 footer {
   margin:5em 0;
 }
@@ -411,26 +406,24 @@ footer .twitter-share-button {
   top:5px;
 }
 
-
-
-
 /* media queries for responsive design */
 /* One-column - iPhone portrait and any 320px device */
 @media (max-width:640px){
   body {font-size:85%;}
-  .typekit-badge {display:none;}
+  .typekit-badge {display:none !important;}
 	.content{
-		width: 320px;
+		width: 310px;
+		margin:0 auto;
 	}
 	#main {
 	  border:0;
 	  margin:0;
 	  padding-top:2em;
 	}
-	.rising {margin-top:13em;}
-	.setting {margin-top:-25em;}
+	.rising {margin-top:12em;}
+	.setting {margin-top:-22em;}
 	hgroup h1 {font-size:2.6em;}
-	hgroup h2 {font-size:0.9em;}
+	hgroup h2 {font-size:1em;}
 	.brave {left:5.25em;top:4.5em;}
 	hgroup + p strong {font-size:0.9em;}
 	.bkmrklt {text-align:center;}
@@ -443,18 +436,6 @@ footer .twitter-share-button {
   #main {
     margin:0 2em;
   }
-	.content {
-		
-	}
-
-}
-
-
-
-/* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
-   consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
-@media screen and (max-device-width: 480px) {
-
 }
 
 /* print styles */
