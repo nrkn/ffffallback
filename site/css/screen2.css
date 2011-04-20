@@ -141,7 +141,7 @@ span.horizon {
 }
 span.rising {width:100%;  margin-top:15em;}
 /*span.setting {width:52em; margin-top:2.5em;margin-left:-20em;}*/
-span.setting {width:100%; position:absolute;bottom:2.5em;}
+span.setting {width:100%; margin-top: -20em;}
 
 
 
@@ -154,7 +154,7 @@ span.setting {width:100%; position:absolute;bottom:2.5em;}
 }
 
 .content {
-  width:31em;
+  width:32em;
   position:relative;
   margin: 0 auto;
 }
@@ -251,8 +251,17 @@ hgroup + p {
   margin-bottom:1.5em;
   width:24em;
 }
-hgroup + p + p {
+hgroup + p strong {
+  line-height: 1.25;
   font-size: 1.125em;
+}
+.wf-active hgroup + p strong {
+  line-height: 1.25;
+  font-size: 1.25em;
+}
+
+hgroup + p + p {
+  font-size: 1.25em;
   line-height:1.5;
   margin-bottom:1.5em;
 }
@@ -262,7 +271,9 @@ hgroup + p + p {
   font-weight:200;
   text-transform:uppercase;
 }
-
+.wf-active .smcap {
+  font-size:0.7em;
+}
 
 .bkmrklt {
   font-size:1.3125em;
@@ -333,21 +344,18 @@ hgroup + p + p {
   text-transform:uppercase;
 }
 
-h3 {
-  margin:0 0 1em;
-}
-#main aside {
-  color:rgba(202,191,171,0.5);
-  font-size: 0.75em;
-  line-height: 1.7;
-  padding-top: .4em;
-  position: absolute;
-  right: -21.5em;
-  width: 16em;
-}
 
-#main ol {
+h3 {
   margin:0 0 1.5em;
+}
+h3 a {
+  color:rgba(202,191,171,0.75);
+  font-weight:normal;
+  position:relative;
+  top:-4px;
+}
+#main ol {
+  margin:0;
 }
 #main ol li {
   margin-bottom:1em;
@@ -357,7 +365,7 @@ h3 {
   font-size:0.8125em;
   margin-top:1em;
 }
-#main ol + p {
+#main aside + p {
   background:url(../images/bang.png) no-repeat 3px 1px;
   font-weight:bold;
   padding-left:2em;
@@ -366,6 +374,12 @@ h3 {
 .ie #main ol.steps {
   display:none;
 } 
+#main aside {
+  color:rgba(202,191,171,0.5);
+  font-size: 0.75em;
+  line-height: 1.7;
+  margin:0 0 1.5em;
+}
 
 
 footer {
